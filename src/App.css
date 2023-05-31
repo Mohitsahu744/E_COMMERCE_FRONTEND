@@ -36,3 +36,131 @@
     transform: rotate(360deg);
   }
 }
+.nav-ul{
+  font-weight: 600;
+  text-align: center;
+  margin-right: 10px;
+}
+.nav-ul li{
+  text-decoration: none;
+  display: inline;
+  margin: 5px;
+  /* border: 1px solid rgb(189, 5, 5); */
+  padding: 5px;
+  cursor: pointer;
+}
+.nav-ul li:hover{
+  display: inline;
+  margin: 5px;
+  border: 1px solid rgb(0, 0, 0);
+  padding: 5px;
+  background-color:rgb(189, 5, 5);
+}
+.link{
+  text-decoration: none;
+  color: rgb(111, 3, 3);
+  padding: 5px;
+}
+.link:hover{
+  color: white;
+}
+.nav-bar{
+  background-color: bisque;
+  margin: 0%;
+  padding: 5px;
+  position:relative;
+}
+.nav-right{
+  text-align: right;
+}
+.footer{
+  position: fixed;
+  bottom: 0%;
+  width: 100%;
+  background-color: bisque;
+}
+.inputbox{
+  display: block;
+  margin: 25px;
+  padding: 7px;
+  width: 300px;
+  border: 1px solid orange;
+  text-align: left;
+}
+.signup-div, .product{
+  text-align: -webkit-center;
+}
+.login{
+  text-align: -webkit-center;
+}
+.heading{
+  margin-right: 5%;
+}
+.btnsignup{
+  text-decoration: none;
+  background-color: bisque;
+  color: black;
+  margin: 2px;
+  padding: 7px 17px 7px 17px;
+  font-size: 14px;
+  border: 1px solid orange;
+  cursor: pointer;
+}
+.btnsignup:hover{
+  font-weight: 500;
+  background-color: rgb(189, 5, 5);
+  color: white;
+  padding: 7px 17px 7px 17px;
+  font-size: 14px;
+  border: 1px solid rgb(0, 0, 0);
+  cursor: pointer;
+}
+.invalid-input{
+  color: red;
+  margin-top: -20px;
+  display: block;
+  margin-left: -194px;
+}
+.product-list{
+  text-align: -webkit-center;
+}
+
+table{
+  width: 70%;
+  border-collapse: collapse;
+  margin-bottom: 100px;
+}
+
+table, th,td{
+  border: 1px solid brown;
+  text-align: center;
+}
+table th{
+  padding: 7px;
+  font-size: 16px;
+}
+.input-search{
+  margin: 20px;;
+  height: 40px;
+  border: 1px solid brown;
+  padding-left: 20px;
+  float: right;
+  
+}
+@media only screen and (max-width: 600px) {
+  /* For mobile phones: */
+  .input-search {
+    float: none;
+    width: 300px;
+  }
+  .btnsignup{
+    font-weight: 500;
+    background-color: bisque;
+    color: black;
+    padding: 5px 10px 5px 10px;
+    font-size: 14px;
+    border: 1px solid orange;
+    cursor: pointer;
+    margin: 2px;
+  }
+}
