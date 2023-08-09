@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react'
-import App from '../App'
-const BASE_URL = 'https://e-commerce-luas.onrender.com';
+import React, { useState } from 'react'
+// import {useNavigate} from 'react-router-dom'
+const BASE_URL = 'http://localhost:4000';
+
 export default function Product() {
     const [name, setName] = useState('')
     const [price, setPrice] = useState('')
@@ -8,6 +9,8 @@ export default function Product() {
     const [company, setCompany] = useState('')
     const [error, setError] = useState(false)
 
+    // const navigate = useNavigate()
+    
 
    async function addProduct(){
     if(!name || !price || !category || !company){
@@ -19,7 +22,8 @@ export default function Product() {
             method:'post',
             body:JSON.stringify({name, price, category, company, userId}),
             headers:{
-                "Content-Type":"application/json"
+                "Content-Type":"application/json",
+                 authorization:`bearer ${JSON.parse(localStorage.getItem('token'))}`
             }
 
         })
@@ -27,6 +31,11 @@ export default function Product() {
         console.log(result)
         if(result){
           alert("Products add successfully.......")
+          setName("")
+          setPrice("")
+          setCategory("")
+          setCompany("")
+          // navigate('/')
         }
 
    }

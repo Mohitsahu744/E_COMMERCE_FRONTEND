@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import {useNavigate} from "react-router-dom"
-const BASE_URL = 'https://e-commerce-luas.onrender.com';
+const BASE_URL = 'http://localhost:4000';
 
 const SignUp = () => {
     const [name, setName] = useState("")
@@ -14,7 +14,7 @@ const SignUp = () => {
     if(auth){
         navigate('/')
     }
-
+// eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
 
     const signUpUser = async () => {

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import {useNavigate, useParams} from 'react-router-dom'
-const BASE_URL = 'https://e-commerce-luas.onrender.com';
+const BASE_URL = 'http://localhost:4000';
 
 export default function UpdateProduct() {
     const [name, setName] = useState('')
@@ -12,10 +12,15 @@ export default function UpdateProduct() {
 
    useEffect(()=>{
     getProductDetails();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
    },[])
 
   async function getProductDetails(){
-    let result = await fetch(`${BASE_URL}/product/${params.id}`);
+    let result = await fetch(`${BASE_URL}/product/${params.id}`,{
+      headers:{
+        authorization:`bearer ${JSON.parse(localStorage.getItem('token'))}`
+      }
+    });
     result = await result.json();
     setName(result.name)
     setPrice(result.price)
@@ -28,7 +33,8 @@ export default function UpdateProduct() {
       method:'put',
       body:JSON.stringify({name,price,category,company}),
       headers:{
-        'Content-type':'application/json'
+        'Content-type':'application/json',
+        authorization:`bearer ${JSON.parse(localStorage.getItem('token'))}`
       }
 
     });

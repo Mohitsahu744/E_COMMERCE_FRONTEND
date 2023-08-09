@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import { Table } from 'react-bootstrap'
 import {Link} from 'react-router-dom'
-const BASE_URL = 'https://e-commerce-luas.onrender.com';
+
+const BASE_URL = 'http://localhost:4000';
 
 export default function ProductList() {
     const[products, setProducts] = useState([])
@@ -13,7 +13,7 @@ export default function ProductList() {
   async  function getProducts(){
         let result =await fetch(`${BASE_URL}/products`,{
           headers:{
-            authorization: JSON.parse(localStorage.getItem('token'))
+            authorization:`bearer ${JSON.parse(localStorage.getItem('token'))}`
           }
         });
         result = await result.json();
@@ -23,7 +23,10 @@ export default function ProductList() {
 
     async function deleteProduct(id){
       let result =await fetch(`${BASE_URL}/products/${id}`,{
-        method:'delete'
+        method:'delete',
+        headers:{
+          authorization:`bearer ${JSON.parse(localStorage.getItem('token'))}`
+        }
       });
         result = await result.json();
         if(result){
@@ -35,7 +38,12 @@ export default function ProductList() {
    async function searchHandle(e){
         let key = e.target.value;
         if(key){
-          let result = await fetch(`${BASE_URL}/search/${key}`);
+          let result = await fetch(`${BASE_URL}/search/${key}`,{
+            headers:{
+              authorization:`bearer ${JSON.parse(localStorage.getItem('token'))}`
+            }
+          }
+          );
           result = await result.json();
           if(result){
             setProducts(result)
